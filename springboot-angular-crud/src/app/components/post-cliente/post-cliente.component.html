@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Registrar nuevo cliente</h2>
+        <form [formGroup]="postCustomerForm">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required formControlName="nombre">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Telefono:</label>
+                <input type="tel" id="telefono" name="telefono" required formControlName="telefono" placeholder="###">
+            </div>
+            <div class="buttons">
+                <button routerLink="">Volver</button>
+                <button class="btn-submit" type="submit" (click)="postCliente()">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
