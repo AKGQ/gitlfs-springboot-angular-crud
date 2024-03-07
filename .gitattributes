@@ -1,0 +1,4 @@
+git filter=lfs diff=lfs merge=lfs -text
+lfs filter=lfs diff=lfs merge=lfs -text
+install filter=lfs diff=lfs merge=lfs -text
+springboot-angular-crud filter=lfs diff=lfs merge=lfs -text
