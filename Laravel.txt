@@ -1,0 +1,56 @@
+ composer create-project laravel/laravel ProjectName
+ php artisan serve
+
+Agregar db a .env
+ php artisan migrate
+ php artisan make:controller UserController
+ php artisan make:model User -mc //En folder migracion, modificamos la tabla y hacemos migracion
+ php artisan migrate
+Crear views y layouts
+Crear la ruta y conectarla al controlador en folder routes
+
+
+php artsian make:migration //Crear migracion propia
+php artisan make:migration create_posts_table //Crea el archivo de migracion con tabla para ser migrado
+php artisan migrate:rollback //Deshace los cambios
+
+Crear resource controller(Controlador ya equipado con los metodos basicos para crud) y modelo php artisan make:controller TaskController --resource --model=Task
+
+Route: Controller
+Controller: Model, View
+
+__________FACTORY____________
+php artisan make:factory PizzaFactory --model=Pizza //Coincidir con el modelo
+edit PizzaFactory.php y DatabaseSeeder.php
+ php artisan db:seed
+
+___________JETSTREAM LOGIN_____________
+
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+npm install
+npm run build
+php artisan migrate
+
+
+acc
+prueba@test.com
+123abc321cba
+
+_____________BOOTSTRAP WITHOUT JETSTREAM________________
+
+1. Install Laravel
+	composer create-project laravel/laravel example-app
+
+2. Use in project folder
+	npm i bootstrap
+
+3. Copy the css and js folders from the following locations
+	-node_modules/bootstrap/dist/css
+	-node_modules/bootstrap/dist/js
+
+4. Paste the css and js folders into the public folder
+
+5. Insert the links into the layout file
+	<link rel="stylesheet" href="{{ asset( 'css/bootstrap.min.css' ) }}">
+	<script src="{{ asset( 'js/bootstrap.min.js' ) }}"></script>

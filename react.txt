@@ -1,0 +1,75 @@
+\Scripts\activate
+
+pip install virtualenv
+python -m venv venv
+venv\Scripts\activate
+pip install django(venv)
+django-admin startproject projectName .
+python manage.py startpp appName //Añadir la app appName y rest_framework a settings del proyecto
+pip install djangorestframework
+pip install django-cors-headers #Comunicate backend server with frontend server 
+pip install coreapi #Auto documentar api
+	REST_FRAMEWORK = {
+    	    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+	} #In settings.py
+
+
+#REST FRAMEWORK
+-Create model
+-Create serializer
+-View (Import serializer and model)
+-Url (Import routers from rest_framework)
+
+#JWT Authentication
+-pip install djangorestframework-simplejwt
+-In settings.py paste
+    REST_FRAMEWORK = {
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+        )
+    }
+
+#MEDIA FILES
+-pip install pillow
+-In settings.py paste
+  import os
+  from django.conf import settings
+  from django.conf.urls.static import static
+   
+  STATIC_URL = "/static/"
+  MEDIA_URL = "/media/"
+
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+  STATICFILES_DIRS = (
+      os.path.join(BASE_DIR, 'static'),
+  )
+
+-In main urls.py paste
+
+from django.conf import settings
+from django.conf.urls.static import static
+
++ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+#React-Bootstrap
+-npm install react-bootstrap bootstrap
+-import 'bootstrap/dist/css/bootstrap.min.css'; in index.js
+
+#React-Bootstrap-vite
+-npm i bootstrap@5.3.2
+
+ Copy files
+ -project-name\node_modules\bootstrap\dist\js\bootstrap.bundle.min
+ -project-name\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js.map
+ and folder
+ -project-name\node_modules\bootstrap\scss
+ and paste them in: project-name\src\assets
+____________________________________________FRONTEND VITEJS____________________________________________
+
+npm create vite@latest #Dentro del proyecto django
+npm install react-router-dom #Modulo para tener multiples paginas en el frontend(routes)
+npm i react-hot-toast #Notificaciones para cuando eliminemos o modifiquemos
+npm install axios #API consumer o hacer peticiones
+npm install react-hook-form #Validar el input que mandemos en el frontend
+npm run dev

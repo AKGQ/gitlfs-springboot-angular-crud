@@ -1,0 +1,41 @@
+________Setup SpringBoot________
+
+go to springboot initializer
+ -Project: Maven
+ -Language Java
+ -Spring Boot: 3.1.6
+ -Packaging: Jar
+ -Java: 17
+ -Dependencies: 
+  -Spring Web: For restful APIs
+  -Lombok: Avoid repeated code
+  -Spring Data JPA: Usar funciones de API con la DB
+  -MySQL Driver: To be able to connect with MySQL
+
+___________SpringBoot___________
+
+Configure database connection in src\main\resources\application.properties and paste
+ spring.datasource.url=jdbc:mysql://localhost:3306/name_db 
+And create an schema in mysql workbench with the same name (name_db)
+
+Create packages and modify in this order(entity(Como modelo en db), repository, service, controller)
+-Repository: Imports entity
+-Service: Imports entity, repository
+-Controller: Imports entity, service
+
+#Model, Repository, Controller
+
+_____________Angular____________
+
+ng new appname
+npm run start
+ ng g c components/component-name (Generate component g: generate, c: component)
+ ng g s service/service-name (Los services contienen data que usa el componente cuando se ejecuta)
+
+Add <router-outlet></router-outlet> to app.component.html
+Add component path to src/app.routing.module.ts
+Edit app.module.ts
+Edit src/app/service/customer.service.ts
+Edit component ts src/app/components/post-customer/post-customer.component.ts
+Edit component html src/app/components/post-customer/post-customer.component.html
+Edit component css src/app/components/post-customer/post-customer.component.css

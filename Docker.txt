@@ -1,0 +1,22 @@
+docker images //View images
+docker ps -a //View all containers
+docker ps //View running containers
+
+docker pull nginx:1.25.3 //Pull image from docker hub
+docker run --name container-name -d -p 80:80 nginx:1.25.3 //(Finds image locally to run into a container, if not, pulls from docker hub, creates a new container)
+           | --name: CONTAINERS NAME|
+           | -d: ATTACH TO RUN IN BACKGROUND AND DONT BLOCK THE TERMINAL |
+           | -p: 80:80: Bind our 80 local´s port with 80 nginx container´s port |
+           |  nginx:1.25.3: Image name and version|
+docker start //Run an already created container
+
+ docker logs container_id or container_name //See logs of background container (like console.log, etc)
+docker stop container_id or container_name //Stop running container
+
+__________CREATE IMAGES__________
+docker build -t node-app:1.0 .
+           | -t: IMAGE NAME AND VERSION |
+	   | .: FOLDER WHERE Dockerfile IS LOCATED |
+__________GLOSARY__________
+Docker registry: Service providing storage for images(like Docker Hub or it can be hosted by third a party like AWS)
+                 Docker registry have repositories wich are collection of related images with different versions

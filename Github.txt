@@ -1,0 +1,28 @@
+0. git pull //Verificar si no hay cambios por comitear o hechos por otra persona en la rama
+
+1. git init
+2. git add . //Guardar cambios, meter cosas en la caja
+3. git status
+4. git commit -m "Primer cambio" //Cerrar caja y poner cinta con texto de contenido de envio
+4.5 Crear repositorio en github.com, al cual se va a subir
+5. git remote add origin https://github.com/AKGQ/repositoryname.git //Decir a quien enviar
+6. git push //Enviar (git push --set-upstream origin master si lo pide)
+gi
+//Para guardar cambios repetir 0, 3, 2, 4 y 6
+
+__________BRANCHES__________
+git branch //See branches
+git branch branchname //Create branch
+git checkout branchname
+git add .
+git commit -m "Primer cambio branch"
+git push (git push --set-upstream origin violeta si lo pide)
+
+//Unir branches (merge o pull)
+
+__________PULL__________
+git pull origin branchname //Traer del repositorio remoto los cambios al local
+
+__________CLONE__________
+Copy repository url (example: https://github.com/AKGQ/tutorial2.git)
+git clone "https://github.com/AKGQ/tutorial2.git" (With parentesis)
