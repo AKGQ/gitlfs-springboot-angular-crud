@@ -1,0 +1,42 @@
+CREATE TABLE customers (
+	customer_id INT PRIMARY KEY IDENTITY(1,1),
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+);
+
+INSERT INTO customers (first_name, last_name) VALUES ('Fred', 'Fish'); --AUTO_INCREMENT
+INSERT INTO customers VALUES ('Larry', 'Lobster'); --IDENTITY
+
+/*CREATE TRANSACTIONS TABLE AND ADD CONSTRAINT TO REFERENCE customer_id FROM customers TABLE*/
+
+CREATE TABLE transactions (
+	transaction_id INT PRIMARY KEY IDENTITY(1,1),
+	amount DECIMAL(5,2),
+	customer_id INT
+);
+
+ALTER TABLE transactions
+ADD CONSTRAINT fk_customer_id
+FOREIGN KEY(customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE;
+
+/*SCHEMA*/
+
+CREATE SCHEMA clientes;
+
+CREATE TABLE clientes.customers (
+	customer_id INT PRIMARY KEY IDENTITY(1,1),
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL
+);
+
+DROP TABLE clientes.customers;
+DROP SCHEMA clientes;
+
+/*ROLLBACK TRANSACTIONS*/
+
+BEGIN TRANSACTION --SAFE POINT
+UPDATE transactions set amount = 100;
+
+ROLLBACK TRANSACTION --TRANSACTION DELETED(DO NOT NEED COMMIT TRANSACTION COMMAND)
+
+COMMIT TRANSACTION --TO CONFIRM TRANSACTION IF DID NOT ROLLBACK

@@ -1,0 +1,55 @@
+CREATE TABLE customers (
+	customer_id SERIAL PRIMARY KEY, /*IN POSTGRESQL WE USE "SERIAL" FOR ID FIELDS TO AUTOINCREMENT*/
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL
+);
+
+/*CREATE TRANSACTIONS TABLE AND ADD CONSTRAINT TO REFERENCE customer_id FROM customers TABLE*/
+
+CREATE TABLE transactions (
+	transaction_id SERIAL PRIMARY KEY,
+	amount DECIMAL(5,2),
+	customer_id INT
+);
+
+ALTER TABLE transactions
+ADD CONSTRAINT fk_customer_id
+FOREIGN KEY(customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE;
+
+CREATE TABLE transactions_respaldo (
+	transaction_id SERIAL PRIMARY KEY,
+	amount DECIMAL(5,2),
+	customer_id INT
+);
+
+/*CREATE FUNCTION AND TRIGGER*/
+
+CREATE FUNCTION SP_Test() RETURNS TRIGGER
+AS
+$$
+BEGIN
+
+INSERT INTO transactions_respaldo VALUES (old.amount, old.customer_id);
+
+return new;
+
+END
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER TR_Update BEFORE UPDATE ON transactions
+FOR EACH ROW
+EXECUTE PROCEDURE SP_Test();
+
+/*ROLLBACK*/
+BEGIN;
+delete from customers where customer_id = 3;
+
+ROLLBACK;
+
+/*----------------------------------------------------------------------------*/
+INSERT INTO customers (first_name, last_name) VALUES ('Bubble', 'Bass');
+INSERT INTO transactions (amount, customer_id) VALUES (259.49, 2);
+
+
+
