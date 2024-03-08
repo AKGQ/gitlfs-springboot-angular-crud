@@ -1,4 +1,4 @@
-0. git pull //Verificar si no hay cambios por comitear o hechos por otra persona en la rama
+0. git clone URL-repositorio //Traer un repositorio a un directorio nuevo
 
 1. git init
 2. git lfs install
