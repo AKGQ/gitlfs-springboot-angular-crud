@@ -1,13 +1,14 @@
 0. git pull //Verificar si no hay cambios por comitear o hechos por otra persona en la rama
 
 1. git init
-2. git add . //Guardar cambios, meter cosas en la caja
+2. git lfs install
 3. git status
-4. git commit -m "Primer cambio" //Cerrar caja y poner cinta con texto de contenido de envio
-4.5 Crear repositorio en github.com, al cual se va a subir
-5. git remote add origin https://github.com/AKGQ/repositoryname.git //Decir a quien enviar
-6. git push //Enviar (git push --set-upstream origin master si lo pide)
-gi
+4. git add . //Guardar cambios, meter cosas en la caja
+5. git lfs track "CRUD_Notas"
+6. git status
+7. git commit -m "Primer cambio" //Cerrar caja y poner cinta con texto de contenido de envio
+8. Ejecutar tres comandos que vienen en la pagina de github para conectar el repositorio de la página y hacer push
+
 //Para guardar cambios repetir 0, 3, 2, 4 y 6
 
 __________BRANCHES__________
