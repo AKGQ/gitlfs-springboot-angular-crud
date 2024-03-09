@@ -1,5 +1,3 @@
-0. git clone URL-repositorio //Traer un repositorio a un directorio nuevo
-
 1. git init
 2. git lfs install
 3. git status
@@ -7,22 +5,15 @@
 5. git lfs track "CRUD_Notas"
 6. git status
 7. git commit -m "Primer cambio" //Cerrar caja y poner cinta con texto de contenido de envio
-8. Ejecutar tres comandos que vienen en la pagina de github para conectar el repositorio de la página y hacer push
-
-//Para guardar cambios repetir 0, 3, 2, 4 y 6
+8. Crear repositorio en github.com, al cual se va a subir y seguir los 3 comandos
 
 __________BRANCHES__________
 git branch //See branches
 git branch branchname //Create branch
-git checkout branchname
-git add .
-git commit -m "Primer cambio branch"
-git push (git push --set-upstream origin violeta si lo pide)
-
-//Unir branches (merge o pull)
 
 __________PULL__________
-git pull origin branchname //Traer del repositorio remoto los cambios al local
+git pull //Actualizar todas las ramas de github
+git pull origin branchname //Traer de github a una rama en especifico
 
 __________CLONE__________
 Copy repository url (example: https://github.com/AKGQ/tutorial2.git)
